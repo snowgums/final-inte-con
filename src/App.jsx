@@ -17,12 +17,13 @@ import FloatingChat from './components/floatingchat';
 import VirtualClassroom from './pages/virtualclassroom';
 import Students from './pages/students';
 import StudentProgress from './pages/studentprogress';
+import AdminApplications from './pages/adminapplications';
 
 function AppContent() {
   const location = useLocation();
 
   // Determine if chat should be shown
-  const hideChatOnRoutes = ['/', '/signup', '/messages', '/profile-preview'];
+  const hideChatOnRoutes = ['/', '/signup', '/messages', '/profile-preview', '/admin-applications'];
   const showFloatingChat = !hideChatOnRoutes.includes(location.pathname);
 
   return (
@@ -40,6 +41,7 @@ function AppContent() {
         <Route path="/virtualclassroom" element={<VirtualClassroom />} />
         <Route path="/students" element={<Students />} />
         <Route path="/student-progress/:id" element={<StudentProgress />} />
+        <Route path="/admin-applications" element={<AdminApplications />} />
       </Routes>
 
       {showFloatingChat && <FloatingChat />}
