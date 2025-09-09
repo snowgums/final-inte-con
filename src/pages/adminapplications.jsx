@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaUserCheck, FaUserTimes, FaIdCard, FaFileAlt, FaRegImage } from "react-icons/fa";
+import {
+  FaUserCheck,
+  FaUserTimes,
+  FaIdCard,
+  FaFileAlt,
+  FaRegImage
+} from "react-icons/fa";
 
 const dummyApplications = [
   {
@@ -37,7 +43,7 @@ export default function AdminApplications() {
   const [applications, setApplications] = useState(dummyApplications);
 
   const handleDecision = (id, decision) => {
-    const updated = applications.map(app =>
+    const updated = applications.map((app) =>
       app.id === id ? { ...app, status: decision } : app
     );
     setApplications(updated);
@@ -88,24 +94,48 @@ export default function AdminApplications() {
               </p>
               <p>
                 <strong>Status:</strong>{" "}
-                <span className={`font-semibold ${app.status === "Accepted" ? "text-green-600" : app.status === "Rejected" ? "text-red-600" : "text-yellow-500"}`}>
+                <span
+                  className={`font-semibold ${
+                    app.status === "Accepted"
+                      ? "text-green-600"
+                      : app.status === "Rejected"
+                      ? "text-red-600"
+                      : "text-yellow-500"
+                  }`}
+                >
                   {app.status}
                 </span>
               </p>
             </div>
 
             <div className="border-t pt-3 text-sm space-y-1">
-              <a href={app.idPhoto} target="_blank" className="text-[#58A8B6] hover:underline flex items-center gap-2">
+              <a
+                href={app.idPhoto}
+                target="_blank"
+                className="text-[#58A8B6] hover:underline flex items-center gap-2"
+              >
                 <FaIdCard /> View Valid ID
               </a>
-              <a href={app.selfie} target="_blank" className="text-[#58A8B6] hover:underline flex items-center gap-2">
+              <a
+                href={app.selfie}
+                target="_blank"
+                className="text-[#58A8B6] hover:underline flex items-center gap-2"
+              >
                 <FaRegImage /> View Selfie w/ ID
               </a>
-              <a href={app.resume} target="_blank" className="text-[#58A8B6] hover:underline flex items-center gap-2">
+              <a
+                href={app.resume}
+                target="_blank"
+                className="text-[#58A8B6] hover:underline flex items-center gap-2"
+              >
                 <FaFileAlt /> View Resume
               </a>
               {app.prc && (
-                <a href={app.prc} target="_blank" className="text-[#58A8B6] hover:underline flex items-center gap-2">
+                <a
+                  href={app.prc}
+                  target="_blank"
+                  className="text-[#58A8B6] hover:underline flex items-center gap-2"
+                >
                   <FaFileAlt /> View PRC License
                 </a>
               )}
